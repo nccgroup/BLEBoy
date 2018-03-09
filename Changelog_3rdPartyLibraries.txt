@@ -1,0 +1,40 @@
+Bluefruit52Lib Changes
+(https://github.com/adafruit/Adafruit_nRF52_Arduino)
+=====
+Most changes apply to only Bluefruit.h and Bluefruit.cpp. Some changes to BLECharacterisitc.h and BLECharacteristic.cpp
+
+- Support for Security Mode 1 Level 4 characteristics.
+- Support for legacy passkey entry and OOB.
+- Support for LE Secure Connections (all association models).
+  - Requires use of micro-ecc library to handle DHE operations.
+- Support for device bonding, bond storage, and loading previous bonded connections.
+- Added utility functions for retrieving connection security, device address, and other device/connection properties.
+- Added functionality to set peripheral GAP security parameters.
+- Disabled DFU OTA service to prevent any unexpected behavior if malformed data is written to the service. Based on the service's default configuration,
+the service is available to any device that can connect to the peripheral. See line 331 of bluefruit.cpp for the change.
+
+NOTE: These changes are not intended for use in secure systems. The library was modified to allow testing of all BLE pairing methods.
+
+
+
+arduino-menusystem Changes
+(https://github.com/jonblack/arduino-menusystem)
+===
+Changes only apply to MenuSystem.cpp and MenuSystem.h
+
+  - Modified to include a new menu item type (ConfigMenuItem).
+
+
+micro-ecc
+(https://github.com/kmackay/micro-ecc)
+===
+
+Changes only apply to uECC.h. The following lines have been added to ensure support for the ECDH curve needed for BLE LESC pairing
+and changing endianess to work with nRF52 Feather:
+
+> #define uECC_VLI_NATIVE_LITTLE_ENDIAN 1
+> #define uECC_SUPPORT_COMPRESSED_POINT 0
+> #define uECC_SUPPORTS_secp256r1 1
+> #define uECC_SQUARE_FUNC 1
+> #define uECC_OPTIMIZATION_LEVEL 3
+> #define uECC_ENABLE_VLI_API 1
