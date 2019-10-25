@@ -3,7 +3,7 @@
 ## Goal
 Create a BLE peripheral that supports all BLE pairing methods that can
 be used for training and testing, including out-of-band (OOB) pairing.
-The perpiheral must be configurable and
+The peripheral must be configurable and
 easy to re-create using consumer parts.
 
 ## About
