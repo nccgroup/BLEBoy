@@ -1,6 +1,6 @@
 # BLEBoy Basics
 
-The goal of this training module is to introduce users to the BLEBoy device, explain how to modify the GAP security parameters and show how it affects BLE pairing, and identify how different pairing modes affect access to characterisitics with various security properties.
+The goal of this training module is to introduce users to the BLEBoy device, explain how to modify the GAP security parameters and show how it affects BLE pairing, and identify how different pairing modes affect access to characteristics with various security properties.
 
 ## Requirements
 * A functioning BLEBoy device.
